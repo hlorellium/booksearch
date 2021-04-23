@@ -3,13 +3,11 @@ import { Book } from './booksSlice';
 
 function BookSnippet(props: { book: Book }) {
     const { book } = props;
+    const coverSrc = `http://covers.openlibrary.org/b/ID/${book.cover_i}-M.jpg`;
 
     return (
         <div>
-            <img
-                src={`http://covers.openlibrary.org/b/ID/${book.cover_i}-S.jpg`}
-                alt="cover"
-            />
+            <img src={coverSrc} alt="" />
             <span>{book.title}</span> - <span>{book.author_name} </span>
         </div>
     );

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
+import { fetchBooks } from './booksAPI';
 
 export interface Book {
     cover_i: number;
@@ -25,14 +26,9 @@ const initialState: booksState = {
 };
 
 export const loadBooks = createAsyncThunk(
-    'books',
+    'books/loadBooks',
     async (query: string) => {
-const queryString = query.split(' ').join('+');
-    const response = await fetch(
-        `http://openlibrary.org/search.json?title=${queryString}`
-    );
-        // The value we return becomes the `fulfilled` action payload
-        let result = await response.json();
+        let result = await fetchBooks(query);
         console.log(result);
         return result;
     }
@@ -49,7 +45,7 @@ export const booksSlice = createSlice({
             })
             .addCase(loadBooks.fulfilled, (state, action) => {
                 state.status = 'idle';
-                state.docs = [...state.docs, ...action.payload.docs];
+                state.docs = [...action.payload.docs];
             });
     },
 });

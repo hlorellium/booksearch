@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../app/hooks';
 import { loadBooks } from '../books/booksSlice';
+import styles from './SearchBar.module.css';
 
 function SearchBar() {
     const [query, setQuery] = useState('');
@@ -15,21 +16,28 @@ function SearchBar() {
     }, [query, dispatch]);
 
     return (
-        <div>
+        <div className={styles.container}>
             <div>
-                <span>Enter book's title</span>
+                <h2 className={styles.title}>Enter book's title</h2>
             </div>
-            <input
-                type="search"
-                name="booksSearch"
-                value={query}
-                onChange={(e) => {
-                    setQuery(e.target.value);
-                }}
-            />
-            <button type="submit" onClick={() => dispatch(loadBooks(query))}>
-                Search
-            </button>
+            <div>
+                <input
+                    type="search"
+                    name="booksSearch"
+                    value={query}
+                    onChange={(e) => {
+                        setQuery(e.target.value);
+                    }}
+                    autoFocus
+                    className={styles.searchInput}
+                />
+                <button
+                    type="submit"
+                    onClick={() => dispatch(loadBooks(query))}
+                >
+                    Search
+                </button>
+            </div>
         </div>
     );
 }

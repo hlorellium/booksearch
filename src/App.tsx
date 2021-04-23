@@ -6,10 +6,8 @@ import SearchBar from './features/searchBar/SearchBar';
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
                 <SearchBar />
                 <Books />
-            </header>
         </div>
     );
 }

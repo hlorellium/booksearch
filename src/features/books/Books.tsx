@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import BookSnippet from './BookSnippet';
 import { selectBooks, loadBooks } from './booksSlice';
 
 function Books() {
@@ -16,7 +17,9 @@ function Books() {
             </button>
             <ul>
                 {books.map((book, index) => (
-                    <li key={index}>{book.title}</li>
+                    <li key={index}>
+                        <BookSnippet book={book} />
+                    </li>
                 ))}
             </ul>
         </div>

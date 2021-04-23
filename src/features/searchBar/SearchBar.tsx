@@ -12,7 +12,7 @@ function SearchBar() {
         }, 1000);
 
         return () => clearTimeout(delayTimer);
-    }, [query]);
+    }, [query, dispatch]);
 
     return (
         <div>

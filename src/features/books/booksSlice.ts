@@ -46,7 +46,7 @@ export const booksSlice = createSlice({
             })
             .addCase(loadBooks.fulfilled, (state, action) => {
                 state.status = 'idle';
-                state.docs = [...action.payload.docs];
+                state.docs = [...action.payload.docs].sort((a, b) => b.edition_count - a.edition_count);
             });
     },
 });

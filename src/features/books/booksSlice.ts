@@ -30,7 +30,7 @@ export const loadBooks = createAsyncThunk(
     async (query: string) => {
         if (!query) return { docs: [] };
         let result = await fetchBooks(query);
-        console.log(result);
+
         return result;
     }
 );

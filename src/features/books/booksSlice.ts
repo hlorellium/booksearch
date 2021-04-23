@@ -28,6 +28,7 @@ const initialState: booksState = {
 export const loadBooks = createAsyncThunk(
     'books/loadBooks',
     async (query: string) => {
+        if (!query) return { docs: [] };
         let result = await fetchBooks(query);
         console.log(result);
         return result;
@@ -49,7 +50,6 @@ export const booksSlice = createSlice({
             });
     },
 });
-
 
 export const selectBooks = (state: RootState) => state.books.docs;
 

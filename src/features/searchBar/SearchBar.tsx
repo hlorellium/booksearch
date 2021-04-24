@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../app/hooks';
 import { loadBooks } from '../books/booksSlice';
 import styles from './SearchBar.module.css';
+import { ReactComponent as SearchIcon } from '../../search.svg';
 
 function SearchBar() {
     const [query, setQuery] = useState('');
@@ -20,7 +21,7 @@ function SearchBar() {
             <div>
                 <h2 className={styles.title}>Enter book's title</h2>
             </div>
-            <div>
+            <div className={styles.search}>
                 <input
                     type="search"
                     name="booksSearch"
@@ -35,7 +36,7 @@ function SearchBar() {
                     type="submit"
                     onClick={() => dispatch(loadBooks(query))}
                 >
-                    Search
+                    <SearchIcon className={styles.searchIcon} />
                 </button>
             </div>
         </div>

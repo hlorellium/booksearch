@@ -4,7 +4,7 @@ import styles from './BookSnippet.module.css';
 
 function BookSnippet(props: { book: Book }) {
     const { book } = props;
-    const coverSrc = `http://covers.openlibrary.org/b/ID/${book.cover_i}-M.jpg?default=false`;
+    const coverSrc = `http://covers.openlibrary.org/b/ID/${book.cover_i}-S.jpg?default=false`;
 
     return (
         <div className={styles.item}>

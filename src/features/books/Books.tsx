@@ -4,6 +4,7 @@ import BookSnippet from './bookSnippet/BookSnippet';
 import { selectBooks, selectStatus } from './booksSlice';
 import styles from './Books.module.css';
 import LoadingSpinner from './loadingSpinner/LoadingSpinner';
+import LoadMoreButton from './loadMore/LoadMoreButton';
 
 function Books() {
     const books = useAppSelector(selectBooks);
@@ -11,12 +12,13 @@ function Books() {
 
     return (
         <div className={styles.container}>
-            {status === 'loading' ? <LoadingSpinner /> : null}
             <div className={styles.grid}>
                 {books.map((book, index) => (
                     <BookSnippet book={book} key={index} />
                 ))}
             </div>
+            {status === 'loading' ? <LoadingSpinner /> : null}
+            <LoadMoreButton />
         </div>
     );
 }

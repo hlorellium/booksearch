@@ -11,7 +11,10 @@ export async function fetchBooks(
     page = 1
 ): Promise<BooksApiResponse> {
     const queryString = query.split(' ').join('+');
-    const requestUrl = `https://openlibrary.org/search.json?q=${queryString}`;
+    const requestUrl =
+        page === 1
+            ? `https://openlibrary.org/search.json?q=${queryString}`
+            : `https://openlibrary.org/search.json?q=${queryString}&page=${page}`;
 
     const response = await fetch(requestUrl);
 

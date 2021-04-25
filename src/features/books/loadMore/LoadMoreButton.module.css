@@ -1,0 +1,12 @@
+.loadMore {
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    width: 50vw;
+    max-width: 500px;
+    background-color: var(--second-bg);
+    border: 1px solid var(--second-bg);
+    box-shadow: var(--box-shadow);
+    margin: 1rem 1rem 2rem 1rem;
+    padding: 1rem 2rem;
+}

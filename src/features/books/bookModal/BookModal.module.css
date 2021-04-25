@@ -64,8 +64,9 @@
 }
 
 .content > h3 {
-    font-size: 2rem;
+    font-size: 1.7rem;
     margin-bottom: 3rem;
+    font-weight: normal;
 }
 
 .highlighted {
@@ -88,9 +89,12 @@
 }
 
 @media (max-width: 1000px) {
-   .modal {
-       overflow-y: auto;
-   } 
+    .wrapper {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    .modal {
+        overflow-y: auto;
+    }
     .container {
         flex-direction: column;
         overflow-y: visible;
@@ -98,7 +102,7 @@
     .crossIcon {
         right: 1.5rem;
         top: 1.5rem;
-
+        position: absolute;
     }
     .container > img {
         height: auto;

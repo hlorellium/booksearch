@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Book } from './booksSlice';
+import { Book } from '../booksSlice';
 import styles from './BookSnippet.module.css';
-import BookModal from './BookModal';
+import BookModal from '../bookModal/BookModal';
 
 function BookSnippet(props: { book: Book }) {
     const { book } = props;

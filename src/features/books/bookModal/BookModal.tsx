@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Book } from './booksSlice';
-import { ReactComponent as CrossIcon } from '../../cross.svg';
+import { Book } from '../booksSlice';
+import { ReactComponent as CrossIcon } from '../../../cross.svg';
 import styles from './BookModal.module.css';
 
 function BookModal(props: {

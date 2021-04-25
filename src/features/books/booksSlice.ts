@@ -13,6 +13,8 @@ export interface Book {
     ia: string[];
     author_key: string[];
     public_scan_b: boolean;
+    publisher?: string[];
+    isbn?: string[];
 }
 
 export interface booksState {
@@ -46,7 +48,9 @@ export const booksSlice = createSlice({
             })
             .addCase(loadBooks.fulfilled, (state, action) => {
                 state.status = 'idle';
-                state.docs = [...action.payload.docs].sort((a, b) => b.edition_count - a.edition_count);
+                state.docs = [...action.payload.docs].sort(
+                    (a, b) => b.edition_count - a.edition_count
+                );
             });
     },
 });

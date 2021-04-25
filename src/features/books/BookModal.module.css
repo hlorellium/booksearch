@@ -1,0 +1,100 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    z-index: 3;
+    background-color: var(--second-bg);
+    width: 80vw;
+    height: 90vh;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: var(--box-shadow);
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 4rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    min-height: 80%;
+    max-height: 100%;
+    max-width: 95vw;
+}
+
+.crossIcon {
+    height: 25px;
+    fill: var(--font-color);
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    cursor: pointer;
+}
+
+.crossIcon:hover {
+    fill: var(--bg-color);
+}
+
+.content {
+    overflow-y: auto;
+    max-width: 1200px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding-right: 1rem;
+}
+
+.content > h2 {
+    margin: 1rem 0;
+}
+
+.content > h3 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.highlighted {
+    font-weight: bold;
+}
+
+.container > img {
+    height: 600px;
+    width: auto;
+}
+
+.content > p {
+    font-size: 1.3rem;
+}
+
+.lineClamp {
+    display: block;
+    color: #999999;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    .container > img {
+        height: auto;
+        width: 200px;
+    }
+    .content {
+        overflow-y: visible;
+    }
+}

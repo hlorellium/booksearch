@@ -16,10 +16,12 @@ function BookSnippet(props: { book: Book }) {
                 <img src={coverSrc} alt="" />
                 <div>
                     <h3>{book.title}</h3>
-                    <span>{book.author_name} </span>
+                    <span>{book.author_name?.join(', ')} </span>
                 </div>
             </div>
-            {modalIsOpened ? <BookModal book={book} setModalIsOpened={setModalIsOpened} /> : null}
+            {modalIsOpened ? (
+                <BookModal book={book} setModalIsOpened={setModalIsOpened} />
+            ) : null}
         </>
     );
 }

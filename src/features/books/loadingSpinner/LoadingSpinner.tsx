@@ -6,7 +6,6 @@ function LoadingSpinner() {
         <div className={styles.spinner}>
             <div></div>
             <div></div>
-            <div></div>
         </div>
     );
 }

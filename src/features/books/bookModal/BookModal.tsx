@@ -34,6 +34,7 @@ function BookModal(props: {
                         <h2>{book.title}</h2>
                         <span>by</span>
                         <h3>{book.author_name?.join(', ')}</h3>
+
                         {book.first_publish_year ? (
                             <p>
                                 <span className={styles.highlighted}>
@@ -42,74 +43,98 @@ function BookModal(props: {
                                 {book.first_publish_year}
                             </p>
                         ) : null}
+
                         {book.publisher ? (
-                            publisherIsTruncated ? (
-                                <p>
-                                    <span className={styles.highlighted}>
-                                        Published by{' '}
-                                    </span>
-                                    {book.publisher?.slice(0, 4).join(', ')}...
-                                    <span
-                                        className={styles.lineClamp}
-                                        onClick={() =>
-                                            setPublisherIsTruncated(
-                                                (prev) => !prev
-                                            )
-                                        }
-                                    >
-                                        Show more
-                                    </span>
-                                </p>
+                            book.publisher.length > 6 ? (
+                                publisherIsTruncated ? (
+                                    <p>
+                                        <span className={styles.highlighted}>
+                                            Published by{' '}
+                                        </span>
+                                        {book.publisher?.slice(0, 4).join(', ')}
+                                        ...
+                                        <span
+                                            className={styles.lineClamp}
+                                            onClick={() =>
+                                                setPublisherIsTruncated(
+                                                    (prev) => !prev
+                                                )
+                                            }
+                                        >
+                                            Show more
+                                        </span>
+                                    </p>
+                                ) : (
+                                    <p>
+                                        <span className={styles.highlighted}>
+                                            Published by{' '}
+                                        </span>
+                                        {book.publisher?.join(', ')}
+                                        <span
+                                            className={styles.lineClamp}
+                                            onClick={() =>
+                                                setPublisherIsTruncated(
+                                                    (prev) => !prev
+                                                )
+                                            }
+                                        >
+                                            Show less
+                                        </span>
+                                    </p>
+                                )
                             ) : (
                                 <p>
                                     <span className={styles.highlighted}>
                                         Published by{' '}
                                     </span>
-                                    {book.publisher?.join(', ')}
-                                    <span
-                                        className={styles.lineClamp}
-                                        onClick={() =>
-                                            setPublisherIsTruncated(
-                                                (prev) => !prev
-                                            )
-                                        }
-                                    >
-                                        Show less
-                                    </span>
+                                    {book.publisher}
                                 </p>
                             )
                         ) : null}
 
                         {book.isbn ? (
-                            isbnIsTruncated ? (
-                                <p>
-                                    <span className={styles.highlighted}>
-                                        ISBN:{' '}
-                                    </span>
-                                    {book.isbn?.slice(0, 4).join(', ')}...
-                                    <span
-                                        className={styles.lineClamp}
-                                        onClick={() =>
-                                            setIsbnIsTruncated((prev) => !prev)
-                                        }
-                                    >
-                                        Show more
-                                    </span>
-                                </p>
+                            book.isbn.length > 6 ? (
+                                isbnIsTruncated ? (
+                                    <p>
+                                        <span className={styles.highlighted}>
+                                            ISBN:{' '}
+                                        </span>
+                                        {book.isbn?.slice(0, 4).join(', ')}...
+                                        <span
+                                            className={styles.lineClamp}
+                                            onClick={() =>
+                                                setIsbnIsTruncated(
+                                                    (prev) => !prev
+                                                )
+                                            }
+                                        >
+                                            Show more
+                                        </span>
+                                    </p>
+                                ) : (
+                                    <p>
+                                        <span className={styles.highlighted}>
+                                            ISBN:{' '}
+                                        </span>
+                                        {book.isbn?.join(', ')}
+                                        <span
+                                            className={styles.lineClamp}
+                                            onClick={() =>
+                                                setIsbnIsTruncated(
+                                                    (prev) => !prev
+                                                )
+                                            }
+                                        >
+                                            Show less
+                                        </span>
+                                    </p>
+                                )
                             ) : (
                                 <p>
                                     <span className={styles.highlighted}>
                                         ISBN:{' '}
                                     </span>
-                                    {book.isbn?.join(', ')}
-                                    <span
-                                        className={styles.lineClamp}
-                                        onClick={() =>
-                                            setIsbnIsTruncated((prev) => !prev)
-                                        }
-                                    >
-                                        Show less
-                                    </span>
+                                    {book.isbn}
                                 </p>
                             )
                         ) : null}
